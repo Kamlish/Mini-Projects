@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+*{
+    box-sizing: border-box; 
+}
+
+body{
+    font-family: 'Lato', sans-serif;
+    background-color: #333;
+    color: #222;
+    overflow-x: hidden; /* Hides x-axis scroll bar */
+    margin: 0; /* ignoring default browser setting */
+}
+
+/* Main Container  */
+
+.container{
+    background-color: #fafafa;
+    transform-origin: top left; /* tranform from origin of top left side*/
+    transition: transform 0.5s linear; /* transition on transform property to move liner */
+    width: 100vw;  /* 100% width of viewport*/
+    min-height: 100vh; /* It prevents the used value of the height property from becoming smaller than the value specified for min-height .*/
+    padding: 50px; /* create space around element's content, inside of any defined border */
+}
+
+.container.show-nav{
+    transform: rotate(-20deg); /* Main containter Rotates 20 deg */
+}
+
+/* Circle Container inside main container*/
+
+.circle-container{
+    position: fixed; /* The element is positioned relative to the browser window */
+    top: -100px;
+    left: -100px;
+}
+
+.circle{
+    background-color: #ff7979;
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    position: relative;
+    transition: transform 0.5s linear;
+}
+
+.container.show-nav .circle{
+    transform: rotate(-70deg); /* it rotates the circle to show close button*/
+}
+
+.circle button{
+    cursor: pointer;
+    position: absolute; 
+    top: 50%;
+    left: 50%;
+    height: 100px;
+    background: transparent;
+    border: 0;
+    font-size: 26px;
+    color: #fff;
+}
+
+.circle button:focus{
+    outline: none;
+}
+
+.circle button#open{
+    left: 60%;
+}
+
+.circle button#close{
+    top: 60%;
+    transform: rotate(90deg);
+    transform-origin: top left;
+}
+
+.container.show-nav + nav li {
+    transform: translateX(0);  /* after show-nav, nav li position to original*/
+    transition-delay: 0.3s;
+}
+
+/* Nav tag */
+
+nav {
+    position: fixed;
+    bottom: 40px;
+    left: 0;
+    z-index: 100; /* The z-index property specifies the stack order of an element. 
+                    - An element with greater stack order is always in front of an element with a lower stack order.*/
+
+}
+
+nav ul {
+    list-style-type: none;  /* remove the li dots*/
+    padding-left: 30px;
+}
+
+nav ul li {
+    text-transform: uppercase;
+    color: #fff;
+    margin: 40px auto;
+    transform: translateX(-100%); /* translate nav from left to x-axis */
+    transition: transform 0.4s ease-in;
+}
+
+nav ul li i{ 
+    font-size : 20px;
+    margin-right: 10px;
+}
+
+nav ul li + li {  
+    margin-left: 15px;  
+    transform: translateX(-150%);  
+}
+
+nav ul li + li + li{
+    margin-left: 30px;
+    transform: translateX(-200%); 
+}
+
+/* Content Div*/
+
+.content{
+    max-width: 1000px; 
+    margin: 50px auto; /* 50px top/bottom, auto left right*/
+}
+
+.content img{
+    max-width: 100%; /* 100% of its container*/
+    border-radius: 4%;
+}
+
+.content h1{
+    margin: 0;
+}
+
+.content small{
+    color: #333;
+    font-style: italic;
+}
+
+.content p {
+    color: #333;
+    line-height: 1.5;  /* space bw lines */
+}
+
+

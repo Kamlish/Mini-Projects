@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Muli&display=swap');
+
+*{
+    box-sizing: border-box; 
+}
+
+body{
+    font-family: 'Muli', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+}
+
+.container{
+    display: flex;
+    width: 90vw; /* to show a little space in window width*/
+
+}
+
+.panel{
+    /* Change to bg-size: cover; to preseve rounded corners on large screens */
+    background-size: auto 100%;
+    background-position: center;
+    background-repeat: no-repeat; 
+    height: 80vh;  /* 80% viewport height of body*/
+    border-radius: 50px; /* Border of images*/
+    color: #ffff;
+    cursor: pointer;
+    flex: 0.5; /* same size of each non active div using flex */
+    margin: 10px; /* space bw images */
+    position: relative; /* h3 panel can be according window size inside container */
+    transition: flex 0.7s ease-in 0.4s; /* transition when image active*/
+}
+
+.panel h3{
+    font-size: 24px;
+    position: absolute; /* to use the below size we use absolute*/
+    bottom: 20px; /* 20px up from bottom side*/
+    left: 20px; /* 20px right from left side */
+    margin: 0; 
+    opacity: 0; /*  to make h3 invisible */
+
+}
+
+.panel.active{
+    flex: 5; /* when the image active the flex size to 5*/
+
+}
+
+.panel.active h3{
+    opacity: 1; /* when panel active, h3 will be visible*/
+    transition: 0.7s ease-in 0.4s;
+}
+
+
+/* if the screen size is under 480px*/
+@media(max-width:480px){
+    .container{
+        width: 50vw;
+    }
+    /* if the screen size is under 480px image 4 and image 5 won't display*/
+    .panel:nth-of-type(4), .panel:nth-of-type(5){
+        display: none;
+    }
+}

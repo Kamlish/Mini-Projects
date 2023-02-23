@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubyntu&display=swap');
+
+*{
+    box-sizing: border-box; 
+}
+
+body {
+    font-family: 'Ubuntu', sans-serif;
+    display: flex;
+    margin: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.bg {
+    background: url('/JavascriptProjects/1.ExpandingCards/imgs/seashore.jpeg');
+    position: absolute;
+    background-repeat: no-repeat;
+    top: -30px; 
+    left: -30px;
+    width: calc(100vw + 60px);  /* The calc() CSS function lets you perform calculations when specifying CSS property values.*/
+    height: calc(100vh + 60px);
+    z-index: -1;
+    filter: blur(0px)  /* image initially set to blur */
+}
+
+.loading-text{
+    font-size: 50px;
+    color: rgb(89, 49, 49);
+}

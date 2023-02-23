@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Muli&display=swap');
+
+:root{
+    --line-border-fill: #3498db;
+    --line-border-empty: #e0e0e0;
+}
+
+*{
+    box-sizing: border-box; 
+}
+
+body{
+    background-color: #f6f7fb;
+    font-family: 'Muli', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+
+}
+.container{
+    text-align: center;
+}
+.progress-container{
+    display: flex;
+    justify-content: space-between;
+    position: relative; 
+    margin-bottom: 30px;
+    max-width: 100%;
+    width: 350px;
+}
+
+.progress-container::before{
+    content: ''; /* show unfilled bar*/
+    background-color: var(--line-border-empty);
+    position: absolute; /* placed accordingly with specific spot*/
+    top: 50%; /* in center of circle(number) div*/
+    left: 0%; /* Starting from left start*/
+    height: 4px; /* Bar height- thickness*/
+    width: 100%; /* 100% of max-width*/
+    z-index: -1; /* the bar will show behind the circle(number) */
+
+}
+
+.progress{
+    background-color: var(--line-border-fill);
+    position: absolute; /* The element is positioned relative to its first positioned (not static) ancestor element*/
+    top: 50%; /* in center of circle(number) div*/
+    left: 0%; /* Starting from left start*/
+    height: 4px; /* Bar height- thickness*/
+    width: 0%; /* 0% of max-width*/
+    z-index: -1; /* the bar will show behind the circle(number) */
+    transition: 0.4s ease; /* the bar will move with transition towards next number */
+}
+
+.circle{
+    background-color: #fff;
+    color: #999;
+    border-radius: 50%; /* to make look like circle*/
+    height: 30px; 
+    width: 30px;
+    display: flex; /* to put the number in center*/
+    align-items: center;
+    justify-content: center;
+    border: 3px solid var(--line-border-empty); /* border around number*/
+    transition: .4s ease; /* transition change where blue line is*/
+}
+
+.circle.active{
+    border-color: var(--line-border-fill); /* border color fill*/
+}
+
+
+.btn{
+    background-color: var(--line-border-fill);
+    color: #fff;
+    border: 0; /* to remove white border*/
+    border-radius: 6px; /* to make border curve*/
+    cursor: pointer;
+    font-family: inherit; /* inherit from body*/
+    padding: 8px 30px; /* 8px top and bottom, 30px left and right*/
+    font-size: 14px;
+    margin-left: 50px;
+}
+
+.btn:active{
+    transform: scale(0.98); /* button press feel*/
+}
+
+.btn:disabled{
+    background-color: var(--line-border-empty);
+    cursor-pointer: not-allowed;
+}
